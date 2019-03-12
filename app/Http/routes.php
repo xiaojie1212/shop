@@ -36,6 +36,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Auth','middleware' =>'auth'],
     Route::get('permission/edit/{id}','UserController@permission_edit');
     Route::post('permission', ['as' => 'admin.permission', 'uses' => 'UserController@add_permission']);
     Route::post('permission/update', ['as' => 'admin.permission.update', 'uses' => 'UserController@update_permission']);
+
     //菜单管理
     Route::post('menu', ['as' => 'admin.menu', 'uses' => 'UserController@add_menu']);
     Route::get('menu','UserController@menu_list');

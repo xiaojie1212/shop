@@ -44,7 +44,7 @@
                                     <th>
                                         创建时间
                                     </th>
-                                    <th class="hidden-480">已启用</th>
+                                    <th class="hidden-480">状态</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -58,12 +58,18 @@
                                         </td>
 
                                         <td>
-                                            <a href="#">{{$v->name}}</a>
+                                            {{$v->name}}
                                         </td>
                                         <td>{{$v->email}}</td>
                                         <td>{{$v->client_role}}</td>
-                                        <td class="hidden-480">{{$v->created_time}}</td>
-                                        <td class="hidden-480">{{$v->status}}</td>
+                                        <td class="hidden-480">{{$v->created_at}}</td>
+                                        <td class="hidden-480">
+                                            @if($v->status==1)
+                                            已启用
+                                                @else
+                                            未启用
+                                                @endif
+                                        </td>
                                         <td>
                                             <div class="btn-group">
                                                 <a data-toggle="modal"  data-target="#mmmm" class="btn btn-xs btn-info" href="{{url('admin/client/edit',['id'=>$v->id])}}">
@@ -127,13 +133,6 @@
                             </div>
                             <div class="space-4"></div>
 
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 客户角色:</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="form-field-1" name="client_role"  class="col-xs-10 col-sm-10">
-                                </div>
-                            </div>
-                            <div class="space-4"></div>
                         </div>
                     </div>
                     <div class="modal-footer">

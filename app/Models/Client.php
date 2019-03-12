@@ -24,8 +24,21 @@ class Client extends Model
         $this->surname =$array['surname'];
         $this->password =md5($array['password']);
         $this->email =$array['email'];
-        $this->client_role =$array['client_role'];
+        $this->client_role =1;
         $this->status = 1;
         $this->save();
+    }
+    /**
+     * 编辑客户
+     */
+    public function editClient($array)
+    {
+        $data = $this->find($array['id']);
+        $data->name =$array['name'];
+        $data->surname =$array['surname'];
+        $data->email =$array['email'];
+        $data->client_role =$array['client_role'];
+        $data->status = 1;
+        $data->save();
     }
 }

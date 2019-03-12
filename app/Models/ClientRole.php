@@ -15,5 +15,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class ClientRole extends Model
 {
-
+    public $table = 'client_roles';
 }

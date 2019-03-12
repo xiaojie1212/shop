@@ -25,15 +25,23 @@ class ClientController extends Controller
     public function add_client(Client $client,Request $request)
     {
         $client->addClient($request->all());
-        return redirect('admin/client')->withClientRole(ClientRole::get());
+        return redirect('admin/client');
     }
     //编辑客户视图
-    public function client_edit(Client $client,$id)
+    public function client_edit(Client $client,ClientRole $clientRole,$id)
     {
         if(!$id) return false;
-        return view('client.client_edit')->withClient($client->find($id))->withClients(Client::get());
+        return view('client.client_edit')
+            ->withClient($client->find($id))
+            ->withClientRloe(ClientRole::get());
     }
 
+    //编辑客户
+    public function update_client(Client $client,Request $request)
+    {
+        $client->addClient($request->all());
+        return redirect('admin/client');
+    }
 
     //删除菜单
     public function client_delete(Client $client,$id){
